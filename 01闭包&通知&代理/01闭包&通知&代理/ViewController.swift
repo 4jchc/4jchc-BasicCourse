@@ -8,10 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController ,VisitorViewDelegate{
     
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -115,7 +114,13 @@ class ViewController: UIViewController {
     {
         print("我滚了")
     }
-    
-    
-}
 
+    //MARK: - 代理方法案例
+    
+    func loginBtnWillClick() {
+        
+    }
+    func registerBtnWillClick() {
+        
+    }
+}
