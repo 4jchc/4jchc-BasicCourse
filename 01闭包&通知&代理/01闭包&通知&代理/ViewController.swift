@@ -7,6 +7,28 @@
 //
 
 import UIKit
+        /*
+        💗闭包案例
+        A 1.定义闭包 2.初始化闭包
+        A 2.判断闭包并赋值
+        B .在控制器中调用闭包
+
+        A1.声明闭包
+        A2.加入Func
+        B1.在控制器中调用Func
+
+        💗代理案例
+        A .定义代理 保存代理对象的方法
+        B .继承代理,调用方法.
+
+        💗通知案例
+        A 1.定义常量 保存通知名称
+        A 2.发出通知postNotificationName
+        B 1.增加监听通知实现方法调用-移除通知
+        */
+
+
+
 
 class ViewController: UIViewController ,VisitorViewDelegate{
     
@@ -14,8 +36,37 @@ class ViewController: UIViewController ,VisitorViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //B 1.增加监听通知实现方法调用
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "cityDidChange:", name: tongzhi, object: nil)
+
+        
         bibao1()
     }
+
+
+    
+    // MARK: - 增加监听通知
+    func cityDidChange(notification: NSNotification) {
+        
+//        // 1.更换顶部区域item的文字
+//        self.selectedCityName = notification.userInfo?[MTSelectCityName] as! String
+//        let topItem = regionItem.customView as? MTHomeTopItem
+//        topItem!.title = "\(selectedCityName) - 全部"
+//        topItem!.subtitle = ""
+//        
+//        // 2.刷新表格数据
+//        self.collectionView?.mj_header.beginRefreshing()
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     //MARK: - 闭包案例
     // Swift中定义属性, 必须在构造方法中初始化, 否则就必须加上?
     // 注意: 以下写法代表闭包的返回值可以为nil
@@ -110,8 +161,10 @@ class ViewController: UIViewController ,VisitorViewDelegate{
     }
     
     // 类似于dealloc方法
-    deinit
-    {
+    deinit{
+        
+        // 移除通知
+        NSNotificationCenter.defaultCenter().removeObserver(self)
         print("我滚了")
     }
 

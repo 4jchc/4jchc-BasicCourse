@@ -15,6 +15,8 @@ protocol VisitorViewDelegate: NSObjectProtocol{
     // 注册回调
     func registerBtnWillClick()
 }
+//A 1.定义常量保存通知名称
+let tongzhi = "tongzhi"
 
 class ceshi: UIView {
 
@@ -23,17 +25,25 @@ class ceshi: UIView {
     // 一定要加上weak, 避免循环引用
     weak var delegate: VisitorViewDelegate?
     
+
+    
     func loginBtnClick(){
         
+        //A 2.发出通知postNotificationName
+        NSNotificationCenter.defaultCenter().postNotificationName(tongzhi, object: nil,userInfo: nil)
         delegate?.loginBtnWillClick()
     }
     func registerBtnClick(){
         
         delegate?.registerBtnWillClick()
     }
+
+    
     
 
+
 }
+
 //A定义代理.保存代理对象的方法
 //B继承代理,调用方法,传值
 
@@ -56,3 +66,15 @@ class ceshi: UIView {
 //func <#代理名字#> {
 //    <#实现方法#>
 //}
+
+//MARK: - 通知案例
+
+// 定义常量保存通知的名称
+let XMGPopoverAnimatorWillShow = "XMGPopoverAnimatorWillShow"
+let XMGPopoverAnimatorWilldismiss = "XMGPopoverAnimatorWilldismiss"
+
+
+
+
+
+
