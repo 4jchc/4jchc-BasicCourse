@@ -27,9 +27,6 @@ import UIKit
         B 1.增加监听通知实现方法调用-移除通知
         */
 
-
-
-
 class ViewController: UIViewController ,VisitorViewDelegate{
     
 
