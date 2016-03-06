@@ -28,7 +28,6 @@ import UIKit
         */
 
 class ViewController: UIViewController ,VisitorViewDelegate{
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
