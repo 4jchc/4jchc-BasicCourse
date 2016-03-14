@@ -57,6 +57,31 @@ class ViewController: UIViewController ,VisitorViewDelegate{
     
     
     
+    /*
+    A-新建闭包-传值 B-接受闭包然后调用
+    
+    /** 获取tags的block */
+    
+    var tagsBlock: ((tags:NSArray) -> Void)?
+    
+    
+    // 传递tags给这个block
+    let tags:NSArray = self.tagButtons.valueForKeyPath("currentTitle") as! NSArray
+    
+    self.tagsBlock?(tags: tags)
+    
+    
+    
+    vc.tagsBlock = {
+    (tags) in
+    if let weakSelf = weakSelf {
+    
+    weakSelf.createTagLabels(tags)
+    
+    }
+    }
+    */
+    
     
     
     
